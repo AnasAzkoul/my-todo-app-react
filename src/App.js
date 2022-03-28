@@ -1,23 +1,19 @@
-
+import { Fragment } from 'react';
+import { BrowserRouter as Routers, Routes, Route } from 'react-router-dom'
 // import components
-import Form from './components/Todo-Form/Form.component';
-import List from './components/Todo-List/List.component';
-// import hooks
-import { useState } from 'react';
-
+import Home from './routers/Home/Home.component';
+import InProgress from './routers/Inprogress-page/Inprogress.component';
 
 // import styles
 import './App.css';
 
 function App() {
-  const [input, setInput] = useState(''); 
-  const [todos, setTodos] = useState([]); 
-
+  
   return (
-    <div className='todo-app-contianer'>
-      <Form setInput={setInput} input={input} setTodos={setTodos} todos={todos}/>
-      <List todos={todos} setTodos={setTodos}/>
-    </div>
+    <Fragment>
+      <Home />
+      <InProgress />
+    </Fragment>
   );
 }
 
