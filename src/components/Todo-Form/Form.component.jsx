@@ -1,9 +1,15 @@
 import React from 'react'
+import { useContext } from 'react';
+import { todosContext } from '../../contexts/Todos.context';
 
 import './Form.styles.css'; 
 
 
-const Form = ({ input, setInput, setTodos, todos }) => {
+const Form = ({ input, setInput }) => {
+
+	const { setTodos, todos } = useContext(todosContext); 
+
+	console.log(todos);
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault(); 
@@ -11,6 +17,8 @@ const Form = ({ input, setInput, setTodos, todos }) => {
 		setTodos([
 			...todos, {id: Math.random() * 100, body: input, completed: false}
 		])
+
+		console.log(todos); 
 
 		setInput('')
 	}

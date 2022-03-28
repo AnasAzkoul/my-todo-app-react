@@ -2,8 +2,14 @@ import React from "react";
 
 import './Todo-item.styles.css'; 
 
+import { useContext } from 'react';
+import { todosContext } from '../../contexts/Todos.context';
 
-const TodoItem = ({ todo, todos, setTodos }) => {
+
+const TodoItem = ({ todo }) => {
+
+	const { todos, setTodos } = useContext(todosContext); 
+
 	const deleteHandler = () => {
 		if (todos.length) { 
 			return setTodos(todos.filter(el => el.id !== todo.id))

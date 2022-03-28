@@ -2,15 +2,19 @@ import React from "react";
 
 // import components
 import TodoItem from "../Todo-item/Todo-item.component ";
+// import context 
+import { useContext } from 'react';
+import { todosContext } from '../../contexts/Todos.context';
 
 import './List.styles.css'; 
 
 
-const List = ({ todos, setTodos }) => {
+const List = () => {
+	const { todos } = useContext(todosContext); 
 	return (
 		<ul className="todos">
 			{todos.map(todo => (
-					<TodoItem todo={todo} todos={todos} setTodos={setTodos} key={todo.id}/>
+					<TodoItem todo={todo} key={todo.id}/>
 				))
 			}
 		</ul>
